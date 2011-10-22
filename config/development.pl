@@ -5,7 +5,7 @@ my $dbpath;
 if ( -d '/home/dotcloud/') {
     $dbpath = "/home/dotcloud/development.db";
 } else {
-    $dbpath = File::Spec->catfile($basedir, 'db', 'development.db');
+    $dbpath = File::Spec->catfile($basedir, 'db', 'myword.db');
 }
 +{
     'DBI' => [
