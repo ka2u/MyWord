@@ -1,0 +1,26 @@
+[% WRAPPER 'include/layout.tt' %]
+
+<div class="row">
+     <div class="span10">
+     	  <h1>View</h1>
+	  <table>
+		<tr>
+			<td>word</td>
+			<td>japanese</td>
+			<td>english</td>
+		</tr>
+		[% FOR word IN words %]
+		<tr>
+			<td>[% word.word %]</td>
+			<td>[% word.japanese %]</td>
+			<td>[% FOR eng IN word.english %]
+			       [% eng %]<br />
+			    [% END %]
+			</td>
+		</tr>
+		[% END %]
+	  </table>
+     </div>
+</div>
+
+[% END %]

@@ -1,0 +1,36 @@
+[% WRAPPER 'include/layout.tt' %]
+
+<div class="row">
+     <div class="span10">
+     	  <h1>Input</h1>
+	  <form method="post" action="/input/store">
+	  	  <input type="text" name="word" />
+		  <input type="submit" />
+	  </form>
+     </div>
+</div>
+
+[% IF res %]
+<div class="row">
+     <div class="">
+     	  <table>
+		<tr>
+			<td>word</td>
+			<td>japanese</td>
+			<td>english</td>
+		</tr>
+		<tr>
+			<td>[% res.word %]</td>
+			<td>[% res.japanese %]</td>
+			<td>
+				[% FOR eng IN res.english %]
+				    [% eng %]<br />
+				[% END %]
+			</td>
+		</tr>
+	  </table>
+     </div>
+</div>
+[% END %]
+
+[% END %]
