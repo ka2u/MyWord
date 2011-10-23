@@ -8,3 +8,8 @@ CREATE TABLE IF NOT EXISTS words (
        japanese TEXT,
        english  TEXT
 );
+
+CREATE TABLE IF NOT EXISTS user (
+       id TEXT PRIMARY KEY,
+       password TEXT
+);

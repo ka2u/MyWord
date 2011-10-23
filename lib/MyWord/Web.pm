@@ -63,8 +63,13 @@ __PACKAGE__->add_trigger(
 __PACKAGE__->add_trigger(
     BEFORE_DISPATCH => sub {
         my ( $c ) = @_;
-        # ...
-        return;
+	unless (defined $c->session->get('login')) {
+	    if ($c->req->path_info ne '/account/login'
+		&& $c->req->path_info ne '/account') {
+		$c->redirect('/account');
+	    }
+	}
+        #return;
     },
 );
 

@@ -45,4 +45,10 @@ sub is_there {
     return $itr;
 }
 
+sub delete {
+    my ($class, $word, $c) = @_;
+
+    $c->db->delete('words', { word => $word });
+}
+
 1;

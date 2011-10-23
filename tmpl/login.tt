@@ -1,0 +1,14 @@
+[% WRAPPER 'include/layout.tt' %]
+
+<div class="row">
+     <div class="span10">
+     	  <h1>Login</h1>
+	  <form method="post" action="/account/login">
+	  	id:<input type="text" name="id" />
+		password:<input type="password" name="password" />
+		<input type="submit" />
+	  </form>
+     </div>
+</div>
+
+[% END %]
