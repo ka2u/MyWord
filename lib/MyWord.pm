@@ -28,7 +28,7 @@ sub db {
     my $self = shift;
     if ( !defined $self->{db} ) {
         my $conf = $self->config->{'DBI'}
-	or die "missing configuration for 'DBI'";
+        or die "missing configuration for 'DBI'";
         my $dbh = DBI->connect(@{$conf});
         my $schema = Teng::Schema::Loader->load(
             namespace => 'MyWord::DB',
@@ -38,7 +38,7 @@ sub db {
             dbh    => $dbh,
             schema => $schema,
 	    );
-	ref($self->{db})->load_plugin('Pager');
+        ref($self->{db})->load_plugin('Pager');
     }
     return $self->{db};
 }
