@@ -1,56 +1,65 @@
 [% WRAPPER 'include/layout.tt' %]
 
 <div class="row">
-     <div class="span10">
-     	  <h1>View</h1>
-	  [% IF pager %]
-	      <div class="span10">
-              [% IF pager.previous_page %]
-                  <a href="/view?page=[% pager.previous_page %]">
-	     	      Previous page</a>
-	      [% END %]
-	      |[% pager.current_page %]|
-	      [% IF pager.next_page %]
-	          <a href="/view?page=[% pager.next_page %]">
-                      Next Page</a>
-	      [% END %]
-              </div>
+  <div class="span3">
+    <h1>View</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="span3">
+    [% IF pager %]
+    [% IF pager.previous_page %]
+    <a href="/view?page=[% pager.previous_page %]">
+      Previous page</a>
+    [% END %]
+    |[% pager.current_page %]|
+    [% IF pager.next_page %]
+    <a href="/view?page=[% pager.next_page %]">
+      Next Page</a>
+    [% END %]
+    [% END %]
+  </div>
+</div>
+<div class="row">
+  <div class="span8">
+    <table>
+      <tr>
+        <td>word</td>
+        <td>japanese</td>
+        <td>english</td>
+      </tr>
+      [% FOR word IN words %]
+      <tr>
+        <td>
+          [% word.word %]
+          <a href="/delete?word=[% word.word %]">
+            delete
+          </a>
+        </td>
+        <td>[% word.japanese %]</td>
+        <td>
+          [% FOR eng IN word.english %]
+          [% eng %]<br />
           [% END %]
-	  <table>
-		<tr>
-			<td>word</td>
-			<td>japanese</td>
-			<td>english</td>
-		</tr>
-		[% FOR word IN words %]
-		<tr>
-			<td>
-				[% word.word %]
-				<a href="/delete?word=[% word.word %]">
-				   delete
-				</a>
-			</td>
-			<td>[% word.japanese %]</td>
-			<td>[% FOR eng IN word.english %]
-			       [% eng %]<br />
-			    [% END %]
-			</td>
-		</tr>
-		[% END %]
-	  </table>
-     </div>
-     [% IF pager %]
-     <div class="span10">
-     	  [% IF pager.previous_page %]
-	     <a href="/view?page=[% pager.previous_page %]">
-	     	Previous page</a>
-	  [% END %]
-	  |[% pager.current_page %]|
-	  [% IF pager.next_page %]
-	     <a href="/view?page=[% pager.next_page %]">Next Page</a>
-	  [% END %]
-     </div>
-     [% END %]
+        </td>
+      </tr>
+      [% END %]
+    </table>
+  </div>
+</div>
+<div class="row">
+  <div class="span3">
+    [% IF pager %]
+    [% IF pager.previous_page %]
+    <a href="/view?page=[% pager.previous_page %]">
+	  Previous page</a>
+    [% END %]
+	|[% pager.current_page %]|
+    [% IF pager.next_page %]
+    <a href="/view?page=[% pager.next_page %]">Next Page</a>
+    [% END %]
+    [% END %]
+  </div>
 </div>
 
 [% END %]
