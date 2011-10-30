@@ -8,7 +8,7 @@ use MyWord::API::Auth;
 
 any '/' => sub {
     my ($c) = @_;
-    $c->render('index.tt');
+    $c->render('input.tt');
 };
 
 any '/account' => sub {
